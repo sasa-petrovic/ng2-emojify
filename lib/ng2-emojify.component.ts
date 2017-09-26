@@ -30,21 +30,20 @@ export class Ng2EmojifyComponent implements OnInit {
     display: 'none',
     left: '0px',
     top: '0px',
-    width: 520 + 'px',
+    width: 200 + 'px',
     height: 200 + 'px',
     border: '1px solid blue',
     'background-color': 'white',
-    'border-radius': '10px 10px 10px 0px',
-    'z-index': 1,
+    'border-radius': '0px',
+    'z-index': 999,
     'overflow-x': 'hidden'
   };
 
   defaultEmotionContainerCss: any = {
     float: 'left',
-    width: 70 + 'px',
-    height: 80 + 'px',
-    margin: '15px',
-    'background-color': 'green'
+    width: 20 + 'px',
+    height: 20 + 'px',
+    margin: '5px',
   };
 
   defaultEmotionImageCss: any = {

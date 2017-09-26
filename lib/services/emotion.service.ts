@@ -11,7 +11,7 @@ export class EmotionService {
     }
 
     SetEmotionInformation(emotionInformation: any): void {
-        this.emotionInformation = ':' + emotionInformation.emojiId + ':';
+        this.emotionInformation = ' ' + emotionInformation.emojiId + ' ';
         this.subject.next(this.emotionInformation);
     }
 

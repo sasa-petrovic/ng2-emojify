@@ -2,57 +2,27 @@ let path: string = 'assets/emoji/';
 
 export const Emotions: any = [
   {
-    emojiId: 'hello',
-    emojiUrl: path + 'hello.png',
-    title: 'Hello'
-  },
-  {
-    emojiId: 'happy',
+    emojiId: ':)',
     emojiUrl: path + 'happy.png',
     title: 'Happy'
   },
   {
-    emojiId: 'flower',
-    emojiUrl: path + 'flower.png',
-    title: 'Flower'
-  },
-  {
-    emojiId: 'allthebest',
-    emojiUrl: path + 'allthebest.png',
-    title: 'All The Best Buddy'
-  },
-  {
-    emojiId: 'angry',
+    emojiId: ':@',
     emojiUrl: path + 'angry.png',
     title: 'Angry'
   },
   {
-    emojiId: 'confusion',
-    emojiUrl: path + 'confusion.png',
-    title: 'Confusion'
-  },
-  {
-    emojiId: 'cry',
+    emojiId: ';(',
     emojiUrl: path + 'cry.png',
     title: 'Cry'
   },
   {
-    emojiId: 'hi',
-    emojiUrl: path + 'hi.png',
-    title: 'Hi'
-  },
-  {
-    emojiId: 'like',
-    emojiUrl: path + 'like.png',
-    title: 'Like'
-  },
-  {
-    emojiId: 'sad',
+    emojiId: ':(',
     emojiUrl: path + 'sad.png',
     title: 'Sad'
   },
   {
-    emojiId: 'heart',
+    emojiId: '<3',
     emojiUrl: path + 'heart.png',
     title: 'Heart'
   }
