@@ -85,7 +85,7 @@ export class Ng2EmojifyComponent implements OnInit {
       if (
         !(event.target.id === this.targetId)
         && !(event.target.id === 'app-emogi-menu')
-        && !(event.target.className === 'app-emogi-image')) {
+        && !(event.target.className === 'app-emogi-image') && document.getElementById('app-emogi-menu')) {
         document.getElementById('app-emogi-menu').style.display = 'none';
       }
     });
