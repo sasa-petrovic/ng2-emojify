@@ -28,8 +28,9 @@ export class EmotionMenuDirective {
   onMouseClick(event) {
     event.preventDefault();
     if (event.target.id === this._elementRef.nativeElement.id) {
-      document.getElementById('app-emogi-menu').style.display = 'block';
-      let height = Number(document.getElementById('app-emogi-menu').style.height.replace('px', ''));
+      const emojiMenu = event.target.parentElement.getElementsByClassName('app-emogi-menu')[0];
+      emojiMenu.style.display = 'block';
+      let height = Number(emojiMenu.style.height.replace('px', ''));
       let mouseLocation = {
         left: event.clientX,
         top: event.clientY - height

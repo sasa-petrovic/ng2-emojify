@@ -1,5 +1,5 @@
-<div [ngStyle]="emotionMenuCss" id="app-emogi-menu">
-  <div [ngStyle]="emotionContainerCss" *ngFor="let image of images" (click)="setImageInformation(image)">
+<div [ngStyle]="emotionMenuCss" class="app-emogi-menu">
+  <div [ngStyle]="emotionContainerCss" *ngFor="let image of images" (click)="setImageInformation(image, $event)">
     <span>
       <img src="{{image.emojiUrl}}" [ngStyle]="emotionImageCss" class="app-emogi-image" title="{{image.title}}">
     </span>

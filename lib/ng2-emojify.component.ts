@@ -1,7 +1,8 @@
-import {Component, OnInit, Renderer} from '@angular/core';
+import { Component, Input, OnInit, Renderer } from '@angular/core';
 import {EmotionService} from "./services/emotion.service";
 import {MenuDataService} from "./services/menu-data.service";
 import {CustomEmotionService} from "./services/custom-emotion.service";
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'emoji-menu',
@@ -13,6 +14,8 @@ export class Ng2EmojifyComponent implements OnInit {
   targetId: string;
   private mouseLocation: {left: number, top: number} = {left: 0, top: 0};
   images: any = [];
+
+  @Input() chatType: string;
 
 
   /* ***********************************************
@@ -82,11 +85,12 @@ export class Ng2EmojifyComponent implements OnInit {
     });
 
     this.renderer.listenGlobal('document', 'click', (event) => {
-      if (
-        !(event.target.id === this.targetId)
-        && !(event.target.id === 'app-emogi-menu')
-        && !(event.target.className === 'app-emogi-image') && document.getElementById('app-emogi-menu')) {
-        document.getElementById('app-emogi-menu').style.display = 'none';
+      const emojiMenu = document.getElementsByClassName('app-emogi-menu') as HTMLCollectionOf<HTMLElement>;
+      if ( this.targetId && event.target.id !== this.targetId && event.target.className !== 'app-emogi-image' && emojiMenu) {
+
+        for (var i = 0; i < emojiMenu.length; i++){
+          emojiMenu[i].style.display = 'none';
+        }
       }
     });
   }
@@ -95,9 +99,40 @@ export class Ng2EmojifyComponent implements OnInit {
    * Methods definitions
    * ************************************************************************************** */
 
-  setImageInformation(imageInfo: any): void {
-    this.emotionService.SetEmotionInformation(imageInfo);
+  setImageInformation(imageInfo: any, event): void {
+
+    if(!this.chatType) {
+      this.chatType = '';
+    }
+
+    this.emotionService.SetEmotionInformation(imageInfo, this.chatType);
+
+    // this.messageInputValue += imageInfo.emojiId;
+
+    /*const formElement = this.findParentBySelector(event.target, 'form');
+
+    if (formElement) {
+      const input = formElement.getElementsByTagName('input')[0];
+
+      input.value = input.value + ' ' + imageInfo.emojiId + ' ';
+    }*/
   }
+
+  findParentBySelector(elm, selector) {
+    const all = document.querySelectorAll(selector);
+    let cur = elm.parentNode;
+    while(cur && !this.collectionHas(all, cur)) { //keep going up until you find a match
+      cur = cur.parentNode; //go up
+    }
+    return cur; //will return null if not found
+  }
+  collectionHas(a, b) { //helper function (see below)
+    for(var i = 0, len = a.length; i < len; i ++) {
+      if(a[i] == b) return true;
+    }
+    return false;
+  }
+
 
 
   get emotionMenuCss() {
